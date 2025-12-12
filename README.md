@@ -92,19 +92,6 @@ Facts:
 
 fact_orders
 
-Diagram included in diagram/pipeline_diagram.png.
-
-
-
---------------------------------------------------
-📂 Project Structure
-ecommerce-data-engineering-pipeline/
-│
-├── airflow_dags/
-├── scripts/
-├── docker/
-├── data/
-├── powerbi/
-└── README.md
+Diagram included in diagram/pipeline_diagram
 
 
