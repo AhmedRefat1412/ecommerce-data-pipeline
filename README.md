@@ -1,97 +1,112 @@
+# 🛒 E-commerce Data Engineering Pipeline
 
-📌 E-commerce Data Engineering Pipeline
+A production-style end-to-end Data Engineering pipeline designed to ingest, process, and analyze e-commerce data from multiple sources, enabling scalable analytics and business insights.
 
-This project is a complete end-to-end Data Engineering pipeline built using:
+---
 
-MongoDB (NoSQL source)
+##  Project Overview
 
-CSV files
+This project builds a complete data platform that integrates **NoSQL data (MongoDB)** with **structured CSV datasets** to generate a fully modeled analytical layer.
 
-Apache Airflow (Orchestration)
+The pipeline seamlessly handles data ingestion from multiple sources, performs distributed data processing using PySpark, and structures the data into a Star Schema for analytical querying. It is fully orchestrated using Apache Airflow to ensure reliable workflow automation, while Power BI is used to deliver interactive dashboards and business insights.
 
-PySpark (Transformations)
+---
 
-PostgreSQL (Data Warehouse – Star Schema)
+## 🏗️ Architecture
 
-Docker + Ubuntu (Deployment)
+![Architecture](https://github.com/AhmedRefat1412/ecommerce-data-pipeline/blob/main/docs/E-commerce%20Data%20piplines.drawio.png)
 
-Power BI (Visualization)
-----------------------------------------
-🚀 Pipeline Architecture
-1. Extract (Task 1 – Airflow DAG)
+---
 
-Fetch orders, users, and products data from MongoDB.
+## 📊 Dashboard
 
-Load additional data from CSV files.
+![Dashboard](https://github.com/AhmedRefat1412/ecommerce-data-pipeline/blob/main/docs/Sales%20Dashboard.png)
 
-Store everything as CSV files inside /data/raw/.
+Interactive dashboard built using:
 
----------------------------------------------------------
-2. Transform (Task 2 – PySpark)
+- Power BI → Business insights & reporting  
 
-Read raw files.
+---
 
-Apply:
+##  Data Lake Design (Local Storage)
 
-Cleaning
+The pipeline follows a layered data architecture:
 
-Joins (Users × Orders × Products)
+- **Raw Layer (/data/raw/)**  
+  Stores ingested data from MongoDB & CSV in original format  
 
-Explode operations
+- **Processed Layer (/data/processed/)**  
+  Cleaned, transformed, and enriched data using PySpark  
 
-Aggregations
+---
 
-Prepare dataframes for Dimensions & Facts.
+##  Data Pipeline
 
-Store processed data inside /data/processed/.
+- Orchestrated using Apache Airflow  
+- Data ingestion from MongoDB & CSV  
+- Stored as raw files  
+- Processing using PySpark  
+- Transformation into Fact & Dimension tables  
 
-----------------------------------------------------
-3. Load (Task 3 – PostgreSQL)
+---
 
-Read processed files.
+##  Data Warehouse Design (Star Schema)
 
-Load dimensions first (Users, Products…).
+![Star Schema](https://github.com/AhmedRefat1412/ecommerce-data-pipeline/blob/main/docs/Data%20Warehouse%20Schema.png)
 
-Retrieve surrogate keys.
+Designed a **Star Schema** for analytical querying:
 
-Join with Fact tables.
+### Dimensions:
+- dim_users  
+- dim_products  
+- dim_date  
+- dim_location  
 
-Load final Fact tables into the Star Schema.
-------------------------------------------------------------------
-4. Visualization
+### Facts:
+- fact_orders  
 
-Connect Power BI (Windows) to PostgreSQL in Docker.
+This design enables:
+- Fast analytical queries  
+- Simplified BI reporting  
+- Scalable data modeling  
 
-Build interactive dashboard.
+---
 
-🐳 Dockerized Environment
+##  Deployment (Dockerized Environment)
 
-The entire pipeline runs inside Docker containers:
+The entire pipeline runs inside containerized services:
 
-Ubuntu
+- Ubuntu  
+- Apache Airflow  
+- Apache Spark  
+- PostgreSQL  
 
-Airflow
+Ensuring:
+- Reproducibility  
+- Easy deployment  
+- Environment consistency  
 
-PostgreSQL
+---
 
-Spark
--------------------------------------------------------
-📊 Star Schema
+##  Data Scale
 
-Dimensions:
+- Handles large-scale datasets (designed for scalability)  
+- Optimized transformations using PySpark  
 
-dim_users
+---
 
-dim_products
+## 🛠️ Tech Stack
 
-dim_date
+- MongoDB (Data Source)  
+- CSV Files  
+- Apache Airflow  
+- Apache Spark (PySpark)  
+- PostgreSQL  
+- Docker  
+- Ubuntu  
+- Power BI  
 
-dim_location
+---
+## 🤝 Feedback
 
-Facts:
-
-fact_orders
-
-Diagram included in diagram/pipeline_diagram
-
-
+I would really appreciate your feedback and suggestions to improve this project.
